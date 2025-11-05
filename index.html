@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Карусель — плавное перелистывание</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="carousel" aria-roledescription="carousel">
+  <div id="slides-container">
+    <div class="slide active" data-index="0">Слайд 1</div>
+    <div class="slide" data-index="1">Слайд 2</div>
+    <div class="slide" data-index="2">Слайд 3</div>
+    <div class="slide" data-index="3">Слайд 4</div>
+    <div class="slide" data-index="4">Слайд 5</div>
+  </div>
+
+  <div id="indicators-container" aria-hidden="false">
+    <div class="indicator active" data-slide-to="0"></div>
+    <div class="indicator" data-slide-to="1"></div>
+    <div class="indicator" data-slide-to="2"></div>
+    <div class="indicator" data-slide-to="3"></div>
+    <div class="indicator" data-slide-to="4"></div>
+  </div>
+
+  <div class="nav-side nav-left">
+    <button id="prev-btn" aria-label="Previous">‹</button>
+  </div>
+  <div class="nav-side nav-right">
+    <button id="next-btn" aria-label="Next">›</button>
+  </div>
+
+  <div id="controls-container" aria-hidden="false">
+    <button id="pause-btn" aria-label="Pause/Play"><i class="fas fa-pause"></i></button>
+  </div>
+</div>
+
+<script src="js/slider.js"></script>
+</body>
+</html>

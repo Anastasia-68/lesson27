@@ -1,0 +1,136 @@
+/* спокойные тона, плавный translateX переход */
+:root{
+  --bg:#eef3f7;
+  --panel:#f7fbfe;
+  --accent-1: #5b8fbf;
+  --accent-2: #7fb3c8;
+  --accent-3: #8fbf9a;
+  --muted: #6b7280;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:20px;
+  font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background:var(--bg);
+  display:flex;
+  justify-content:center;
+}
+
+#carousel{
+  width:820px;
+  max-width:95%;
+  border-radius:12px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#fff,#f7fbff);
+  box-shadow:0 8px 30px rgba(12,25,40,0.08);
+  position:relative;
+}
+
+ 
+#slides-container{
+  display:flex;
+  width:100%;
+  height:420px;
+  transition: transform 450ms cubic-bezier(.22,.9,.33,1);
+  will-change: transform;
+  touch-action: pan-y; /* разрешаем вертикальную прокрутку по умолчанию */
+}
+
+/* каждый слайд занимает 100% ширины контейнера */
+.slide{
+  flex: 0 0 100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  font-weight:700;
+  color:#fff;
+  user-select:none;
+  padding:24px;
+}
+
+/* спокойные градиенты для слайдов */
+.slide:nth-child(1){ background: linear-gradient(135deg,#4b6aa8,#88a5c8); }
+.slide:nth-child(2){ background: linear-gradient(135deg,#6aa6a8,#9dd0d2); color:#07333a; }
+.slide:nth-child(3){ background: linear-gradient(135deg,#72a86a,#b7d9a6); color:#08320a; }
+.slide:nth-child(4){ background: linear-gradient(135deg,#6f85b0,#aabce0); }
+.slide:nth-child(5){ background: linear-gradient(135deg,#9fb4c8,#d6e6f2); color:#083048; }
+
+
+#indicators-container{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:12px;
+  display:flex;
+  gap:8px;
+  z-index:8;
+}
+.indicator{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  border:0;
+  background:rgba(255,255,255,0.6);
+  box-shadow:0 1px 3px rgba(2,6,23,0.12);
+  cursor:pointer;
+}
+.indicator.active{
+  background:white;
+  transform:scale(1.25);
+}
+
+
+.nav-side{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:100%;
+  padding:0 12px;
+  box-sizing:border-box;
+  pointer-events:none;
+}
+.nav-left{ justify-content:flex-start; display:flex; }
+.nav-right{ justify-content:flex-end; display:flex; }
+.nav-side button{
+  pointer-events:auto;
+  background:rgba(255,255,255,0.12);
+  border:0;
+  color:#fff;
+  width:46px;
+  height:46px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter: blur(4px);
+}
+.nav-side button:focus{ outline:2px solid rgba(255,255,255,0.75); }
+
+ 
+#controls-container{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:9;
+}
+#controls-container button{
+  background:rgba(255,255,255,0.12);
+  border:0;
+  color:#fff;
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+#controls-container button:focus{ outline:2px solid rgba(255,255,255,0.75); }
+
+/* адаптив */
+@media (max-width:640px){
+  #carousel{ width:95%; }
+  .slide{ font-size:22px; padding:16px; height:300px; }
+  #slides-container{ height:300px; }
+}
